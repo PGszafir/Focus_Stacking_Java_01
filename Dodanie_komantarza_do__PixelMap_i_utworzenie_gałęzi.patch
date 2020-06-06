@@ -1,0 +1,13 @@
+Index: src/main/java/PixelMap.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/java/PixelMap.java	(revision d7fd54b93ec2a2f7648b4fddbd46963d7fbd7793)
++++ src/main/java/PixelMap.java	(date 1591479528890)
+@@ -1,2 +1,4 @@
+ public class PixelMap {
+ }
++//Jacek Jak to widzisz to tutaj dodawaj swoje funkcjonalnsci z operacjami na pixelach patrz co zakomitował łukasz
++// tak zeby wszystko się łaczyło
+\ No newline at end of file
