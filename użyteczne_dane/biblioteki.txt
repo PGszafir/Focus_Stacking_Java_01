@@ -1,0 +1,11 @@
+  
+imageio// wczytywanie jpg
+
+file// pliki 
+
+jcomponent
+  |
+ \ /
+jpanel// 
+
+buffered image// operacje na  macierzach grafika 
