@@ -1,5 +1,5 @@
   
-imageio// wczytywanie jpg
+imageio// wczytywanie jpg (dołączona)
 
 file// pliki 
 
@@ -8,4 +8,7 @@ jcomponent
  \ /
 jpanel// 
 
-buffered image// operacje na  macierzach grafika 
+/////////////////buffered image// operacje na  macierzach grafika 
+
+
+The OpenIMAJ Image Processing Library » 1.3.10 dołączone
