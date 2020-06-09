@@ -7,3 +7,6 @@ https://stackoverflow.com/questions/1009607/how-can-i-edit-a-jpg-image-through-j
 
 POBIERANIE I WYŚWIETLANIE OBRAZÓW - KLASA ImageIO
 https://javastart.pl/baza-wiedzy/grafika_awt_swing/pobieranie-i-wyswietlanie-obrazow
+
+Przekształcanie objektu BufferedImage na tablicę pixeli:
+https://stackoverflow.com/questions/6524196/java-get-pixel-array-from-image
