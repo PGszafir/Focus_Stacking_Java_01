@@ -1,4 +1,6 @@
 public class PixelMap {
+
+    //mapowanie ostrości jako 2 macierz tej klasy
 //poeracje na macierzach pixeli
     //export do klasy FotoJpg
 }
@@ -7,4 +9,4 @@ public class PixelMap {
 //Mój komentarz - Jacek
 
 
-//PixelMapJPG*n ->PixelMap_mapa fęstości ostrości-> pixem map finalny-> JPG
+//PixelMapJPG*n -> PixelMap_mapa fęstości ostrości-> pixem map finalny-> JPG
