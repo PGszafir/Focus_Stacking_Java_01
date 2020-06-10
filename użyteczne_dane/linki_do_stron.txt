@@ -10,3 +10,6 @@ https://javastart.pl/baza-wiedzy/grafika_awt_swing/pobieranie-i-wyswietlanie-obr
 
 Przekształcanie objektu BufferedImage na tablicę pixeli:
 https://stackoverflow.com/questions/6524196/java-get-pixel-array-from-image
+
+Przekształcanie tablicy dwuwymiarowej na objekt BufferedImage
+https://stackoverflow.com/questions/21576096/convert-a-2d-array-of-doubles-to-a-bufferedimage/21576964
