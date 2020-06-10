@@ -1,4 +1,7 @@
 public class FotoJPG {
+//wczytaj z pliku
+//utwórz obiekt z wczytanego zdjęcia
+//zamień go na mapę pixeli macierz klasy PixelMap
 
 }
 
