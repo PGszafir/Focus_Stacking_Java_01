@@ -1,7 +1,7 @@
 import org.joda.time.DateTime;
 
 import javax.swing.*;
-
+//uruchomcie sobie zobaczcie co robi 
 public class Main {
     public static void main(String[] args){
         DateTime time=new DateTime();
