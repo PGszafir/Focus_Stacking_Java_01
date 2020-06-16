@@ -15,6 +15,9 @@ public class Main {
         JOptionPane.showMessageDialog(null,"Focus Stacking Java Program");
 
 
+        //zapis do pliku jako Focus_Stacking_"nazwa_pliku".jpg
+
+
         //JOptionPane.showMessageDialog(null,"zapisano wynki działania progrzmu do pliku");
     }
 }
