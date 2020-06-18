@@ -10,12 +10,13 @@ class GaussianBlur {
                     int[][] blur_matrix = [[input_image[i-1][j-1],input_image[i-1][j],input_image[i-1][j+1]],
                                             [input_image[i][j-1],input_image[i][j],input_image[i][j+1]],
                                             [input_image[i+1][j-1],input_image[i][j],input_image[i+1][j+1]]];
-                    intbuff
+                    int blured_pixel=0;
                     for(int k=0; k<3; k++){
                         for(int l=0; l<3; l++){
-
+                            //oblicz średnią ważoną pixel.green
                         }
                     }
+                    blured_pixel /= 16;
                 }
                 else{
                     //dodaj niezmieniony piksel
