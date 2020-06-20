@@ -8,11 +8,14 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
+import javax.swing.JFrame;
+import java.awt.EventQueue; //do klasy testowej
+
 public class FotoJPG extends JPanel {
     //obraz w formie tablicy atrybutów, które odpowiadają poszczególnym pikselom obrazka
     private BufferedImage image;
 
-    public ObrazPanel() {
+    public FotoJPG() {
         super();
         //wczytaj z pliku
         File imageFile = new File("psiaki.jpg");
@@ -23,7 +26,9 @@ public class FotoJPG extends JPanel {
             System.err.println("Blad odczytu obrazka");
             e.printStackTrace();
         }
-
+        private int[] pixelArray;
+        //próba uzyskania tablicy pikseli
+        image.getRGB(0, 0, image.getWidth(), image.getHeight(), pixelArray)
         Dimension dimension = new Dimension(image.getWidth(), image.getHeight());
         setPreferredSize(dimension);
     }
@@ -36,11 +41,10 @@ public class FotoJPG extends JPanel {
     }
 }
 
-import javax.swing.JFrame;
 //TO CHYBA RAMKA ZDJĘCIA - CZYLI OPCJONALNE
-public class ObrazFrame extends JFrame {
+/*private class ObrazFrame extends JFrame {
 
-    public ObrazFrame() {
+    private ObrazFrame() {
         super("Program obrazkowy");
 
         JPanel obrazPanel = new ObrazPanel();
@@ -52,7 +56,7 @@ public class ObrazFrame extends JFrame {
     }
 }
 
-import java.awt.EventQueue;
+
 //KLASA TESTOWA - nie mam pojęcia jak działa
 public class Test {
     public static void main(String[] args) {
@@ -66,5 +70,5 @@ public class Test {
 }
 
 
-
+*/
 //zamień go na mapę pixeli macierz klasy PixelMap
