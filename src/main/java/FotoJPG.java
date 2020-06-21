@@ -8,6 +8,8 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
+import java.util.Arrays; //wyświetlanie tablicy intów
+
 import javax.swing.JFrame;
 import java.awt.EventQueue; //do klasy testowej
 
@@ -26,9 +28,10 @@ public class FotoJPG extends JPanel {
             System.err.println("Blad odczytu obrazka");
             e.printStackTrace();
         }
-        private int[] pixelArray;
+        int[] pixelArray = new int[10000];
         //próba uzyskania tablicy pikseli
-        image.getRGB(0, 0, image.getWidth(), image.getHeight(), pixelArray)
+        image.getRGB(0, 0, image.getWidth(), image.getHeight(), pixelArray, 0, 1);
+        System.out.println(Arrays.toString(pixelArray));
         Dimension dimension = new Dimension(image.getWidth(), image.getHeight());
         setPreferredSize(dimension);
     }
