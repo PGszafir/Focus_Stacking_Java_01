@@ -8,7 +8,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
-//import java.util.Arrays; //wyświetlanie tablicy intów
+import java.util.Arrays; //wyświetlanie tablicy intów
 
 public class FotoJPG extends JPanel {
     //obraz w formie tablicy atrybutów, które odpowiadają poszczególnym pikselom obrazka
@@ -25,11 +25,16 @@ public class FotoJPG extends JPanel {
             System.err.println("Blad odczytu obrazka");
             e.printStackTrace();
         }
-        //int[] pixelArray = new int[10000];
+        int[] pixelArray = new int[image.getWidth()*image.getHeight()];
         //próba uzyskania tablicy pikseli
-        //image.getRGB(0, 0, image.getWidth(), image.getHeight(), pixelArray, 0, 1);
-        //System.out.println(Arrays.toString(pixelArray));
-
+        image.getRGB(0, 0, image.getWidth(), image.getHeight(), pixelArray, 0, image.getWidth());
+        System.out.println(Arrays.toString(pixelArray));
+        //jest to tablica pikseli w postaci unsigned integer formy 0xAARRGGBB
+        //tu trzeba zrobić fora, aby otrzymywać tablicę krotek wartości kolorów składających się na każdy piksel
+        //int b = (pixelArray)&0xFF; //niebieski
+        //int g = (pixelArray>>8)&0xFF; //zielony
+        //int r = (pixelArray>>16)&0xFF; //czerwony
+        //int a = (pixelArray>>24)&0xFF; //alfa (?)
         Dimension dimension = new Dimension(image.getWidth(), image.getHeight());
         setPreferredSize(dimension);
     }
