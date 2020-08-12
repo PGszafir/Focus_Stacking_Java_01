@@ -6,7 +6,7 @@ public class ObrazFrame extends JFrame {
     public ObrazFrame() {
         super("Program obrazkowy");
 
-        JPanel obrazPanel = new FotoJPG();
+        JPanel obrazPanel = new FotoShow();
         add(obrazPanel);
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

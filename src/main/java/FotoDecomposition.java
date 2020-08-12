@@ -1,21 +1,17 @@
-//import i eksport zdjęc JPG
-
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
-import javax.swing.JPanel;
 
-import java.util.Arrays; //wyświetlanie tablicy intów
+//import java.util.Arrays; //wyświetlanie tablicy intów
 
-public class FotoJPG extends JPanel {
+/** import i rozkład zdjęc JPG do postaci ARGB **/
+public class FotoDecomposition {
     //obraz w formie tablicy atrybutów, które odpowiadają poszczególnym pikselom obrazka
     private BufferedImage image;
 
-    public FotoJPG() {
-        super();
+    public FotoDecomposition() {
         //wczytaj z pliku
         File imageFile = new File("psiaki.jpg");
         try {
@@ -29,8 +25,7 @@ public class FotoJPG extends JPanel {
         //próba uzyskania tablicy pikseli
         image.getRGB(0, 0, image.getWidth(), image.getHeight(), pixelArray, 0, image.getWidth());
         //uzyskana tablica to tablica pikseli w postaci unsigned integer formy 0xAARRGGBB
-        System.out.println(Arrays.toString(pixelArray));
-
+        //System.out.println(Arrays.toString(pixelArray));
 
         //tablica pikseli reprezentowanych przez tablicę 4 wartości kolorów składowych
         int[][][] pixelArrayARGB = new int[image.getWidth()][image.getHeight()][4];
@@ -42,24 +37,15 @@ public class FotoJPG extends JPanel {
             pixelArrayARGB[y][x][2] = (pixelArray[i] >> 8) & 0xFF; //g, zielony
             pixelArrayARGB[y][x][3] = (pixelArray[i]) & 0xFF; //b, niebieski
         }
-        for(int i = 0; i < 50; i++) {
-            for(int j = 0; j < 50; j++) {
+        for (int i = 0; i < 50; i++) {
+            for (int j = 0; j < 50; j++) {
                 System.out.print("[");
-                for(int k = 0; k < 4; k++) {
-                    System.out.print(" "+pixelArrayARGB[i][j][k]);
+                for (int k = 0; k < 4; k++) {
+                    System.out.print(" " + pixelArrayARGB[i][j][k]);
                 }
                 System.out.print("], ");
             }
             System.out.println();
         }
-        Dimension dimension = new Dimension(image.getWidth(), image.getHeight());
-        setPreferredSize(dimension);
-    }
-
-    @Override
-    public void paintComponent(Graphics g) {
-        Graphics2D g2d = (Graphics2D) g;
-        //wyświetlenie obrazka
-        g2d.drawImage(image, 0, 0, this);
     }
 }

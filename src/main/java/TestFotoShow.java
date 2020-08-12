@@ -1,6 +1,6 @@
 import java.awt.EventQueue;
 
-public class TestFotoJPG {
+public class TestFotoShow {
     public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
             @Override

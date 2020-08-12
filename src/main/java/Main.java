@@ -8,6 +8,6 @@ public class Main {
         DateTime time=new DateTime();
         System.out.println("Focus Stacking Java Program");
         JOptionPane.showMessageDialog(null,"Focus Stacking Java Program");
-        //call FotoJPG; //NIE WIEM JAK TO WYWOŁAĆ
+        new FotoDecomposition();
     }
 }
