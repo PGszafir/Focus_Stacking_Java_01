@@ -11,9 +11,9 @@ public class FotoDecomposition {
     //obraz w formie tablicy atrybutów, które odpowiadają poszczególnym pikselom obrazka
     private BufferedImage image;
 
-    public FotoDecomposition() {
+    public FotoDecomposition(String nazwaObrazu) {
         //wczytaj z pliku
-        File imageFile = new File("psiaki.jpg");
+        File imageFile = new File(nazwaObrazu);
         try {
             //utwórz obiekt z wczytanego zdjęcia
             image = ImageIO.read(imageFile);
