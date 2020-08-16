@@ -10,8 +10,15 @@ import javax.imageio.ImageIO;
 public class FotoDecomposition {
     //obraz w formie tablicy atrybutów, które odpowiadają poszczególnym pikselom obrazka
     private BufferedImage image;
+    public FotoDecomposition() {
+        final int NUMBER_OF_PHOTOS = 5;
+        int[][][][] allfotopixels = new int[NUMBER_OF_PHOTOS][][][];
+        for(int i = 1; i <= NUMBER_OF_PHOTOS; i++) {
+            allfotopixels[i-1] = Read("foto" + i + ".jpg");
+        }
+    }
 
-    public FotoDecomposition(String nazwaObrazu) {
+    public int[][][] Read(String nazwaObrazu) {
         //wczytaj z pliku
         File imageFile = new File("resources/"+nazwaObrazu);
         try {
@@ -47,5 +54,6 @@ public class FotoDecomposition {
             }
             System.out.println();
         }
+        return pixelArrayARGB;
     }
 }
