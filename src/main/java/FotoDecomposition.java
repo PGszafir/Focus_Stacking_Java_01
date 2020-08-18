@@ -8,17 +8,11 @@ import javax.imageio.ImageIO;
 
 /** import i rozkład zdjęc JPG do postaci ARGB **/
 public class FotoDecomposition {
+    public int[][][] pixelArrayARGB;
     //obraz w formie tablicy atrybutów, które odpowiadają poszczególnym pikselom obrazka
     private BufferedImage image;
-    public FotoDecomposition() {
-        final int NUMBER_OF_PHOTOS = 5;
-        int[][][][] allfotopixels = new int[NUMBER_OF_PHOTOS][][][];
-        for(int i = 1; i <= NUMBER_OF_PHOTOS; i++) {
-            allfotopixels[i-1] = Read("foto" + i + ".jpg");
-        }
-    }
 
-    public int[][][] Read(String nazwaObrazu) {
+    public FotoDecomposition(String nazwaObrazu) {
         //wczytaj z pliku
         File imageFile = new File("resources/"+nazwaObrazu);
         try {
@@ -35,7 +29,7 @@ public class FotoDecomposition {
         //System.out.println(Arrays.toString(pixelArray));
 
         //tablica pikseli reprezentowanych przez tablicę 4 wartości kolorów składowych
-        int[][][] pixelArrayARGB = new int[image.getWidth()][image.getHeight()][4];
+        pixelArrayARGB = new int[image.getWidth()][image.getHeight()][4];
         for (int i = 0; i < image.getWidth() * image.getHeight(); i++) {
             int x = i / image.getWidth(); //pozycja na osi poziomej
             int y = i % image.getWidth(); //pozycja na osi pionowej
@@ -44,16 +38,5 @@ public class FotoDecomposition {
             pixelArrayARGB[y][x][2] = (pixelArray[i] >> 8) & 0xFF; //g, zielony
             pixelArrayARGB[y][x][3] = (pixelArray[i]) & 0xFF; //b, niebieski
         }
-        for (int i = 0; i < 50; i++) {
-            for (int j = 0; j < 50; j++) {
-                System.out.print("[");
-                for (int k = 0; k < 4; k++) {
-                    System.out.print(" " + pixelArrayARGB[i][j][k]);
-                }
-                System.out.print("], ");
-            }
-            System.out.println();
-        }
-        return pixelArrayARGB;
     }
 }
