@@ -1,7 +1,7 @@
-public class FocusStackedImage {
+public class FocusStacking {
     private char [][][] image;
-    public FocusStackedImage(int[][][] focus, char[][][][] input_images){
-        int x, y, z, w;
+    public FocusStacking(int[][][] focus, char[][][][] input_images){
+        int x, y, z;
         x = input_images.length;
         y = input_images[0].length;
         z = input_images[0][0].length;
