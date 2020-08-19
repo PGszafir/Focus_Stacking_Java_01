@@ -9,6 +9,7 @@ public class Main {
         System.out.println("Focus Stacking Java Program");
         JOptionPane.showMessageDialog(null,"Focus Stacking Java Program");
 
+        //FotoDecomposition
         final int NUMBER_OF_PHOTOS = 5;
         FotoDecomposition[] allFotoPixels = new FotoDecomposition[NUMBER_OF_PHOTOS];
 
@@ -20,6 +21,24 @@ public class Main {
                     for (int l = 0; l < 4; l++)
                         System.out.print(" " + allFotoPixels[i - 1].pixelArrayARGB[j][k][l]);
                     System.out.print("], ");
+                }
+                System.out.println();
+            }
+            System.out.println("\n\n");
+        }
+
+        //GaussianBlur
+        //------
+
+
+
+        //EdgeDetection
+        EdgeDetection[] allFotoSharpness = new EdgeDetection[NUMBER_OF_PHOTOS];
+        for(int i = 0; i < NUMBER_OF_PHOTOS; i++) {
+            allFotoSharpness[i] = new EdgeDetection(allFotoPixels[i].pixelArrayARGB);
+            for (int j = 0; j < 5; j++) {
+                for (int k = 0; k < 5; k++) {
+                        System.out.print(" " + allFotoSharpness[i].sharpnessValue[j][k]);
                 }
                 System.out.println();
             }

@@ -2,10 +2,11 @@ import static java.lang.Math.*;
 
 public class EdgeDetection { // extends PixelMap {
     private static final int[][] laplacian_operator = {{-1,-1,-1},{-1,8,-1},{-1,-1,-1}};
+    public int[][] sharpnessValue;
     public EdgeDetection(int[][][] input_image) {
         int height = input_image.length;
         int width = input_image[0].length;
-        int[][] sharpness_value = new int[height][width];
+        sharpnessValue = new int[height][width];
         int red;
         int green;
         int blue;
@@ -21,16 +22,16 @@ public class EdgeDetection { // extends PixelMap {
                             red = laplacian_matrix[k][l][1];
                             green = laplacian_matrix[k][l][2];
                             blue = laplacian_matrix[k][l][3];
-                            sharpness_value[i][j] += (red + green + blue) * laplacian_operator[k][l];
+                            sharpnessValue[i][j] += (red + green + blue) * laplacian_operator[k][l];
                         }
                     }
-                    sharpness_value[i][j] = abs(sharpness_value[i][j]);
+                    sharpnessValue[i][j] = abs(sharpnessValue[i][j]);
                 }
                 else{
                     red = input_image[i][j][1];
                     green = input_image[i][j][2];
                     blue = input_image[i][j][3];
-                    sharpness_value[i][j] = red + green + blue; //to trzeba będzie udoskonalić
+                    sharpnessValue[i][j] = red + green + blue; //to trzeba będzie udoskonalić
                 }
             }
         }
