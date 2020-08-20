@@ -28,7 +28,21 @@ public class Main {
         }
 
         //GaussianBlur
-        //------
+        System.out.println("----------------------------------------------------");
+        GaussianBlur[] allFotoBlurred = new GaussianBlur[NUMBER_OF_PHOTOS];
+        for(int i = 0; i < NUMBER_OF_PHOTOS; i++) {
+            allFotoBlurred[i] = new GaussianBlur(allFotoPixels[i].pixelArrayARGB);
+            for (int j = 0; j < 5; j++) {
+                for (int k = 0; k < 5; k++) {
+                    System.out.print("[");
+                    for (int l = 0; l < 4; l++)
+                        System.out.print(" " + allFotoBlurred[i].getPixel(j,k)[l]);
+                    System.out.print("], ");
+                }
+                System.out.println();
+            }
+            System.out.println("\n\n");
+        }
 
 
 

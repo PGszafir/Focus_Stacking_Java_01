@@ -15,7 +15,7 @@ public class EdgeDetection { // extends PixelMap {
                 if(i>0 && j>0 && i<height-1 && j<width-1){
                     int[][][] laplacian_matrix = {{input_image[i-1][j-1],input_image[i-1][j],input_image[i-1][j+1]},
                             {input_image[i][j-1],input_image[i][j],input_image[i][j+1]},
-                            {input_image[i+1][j-1],input_image[i][j],input_image[i+1][j+1]}}; //tu chyba wymiary na odwrót
+                            {input_image[i+1][j-1],input_image[i+1][j],input_image[i+1][j+1]}};
 
                     for(int k=0; k<3; k++){
                         for(int l=0; l<3; l++){
