@@ -36,4 +36,8 @@ public class EdgeDetection { // extends PixelMap {
             }
         }
     }
+
+    public int[][] getFocusMap(){
+        return this.sharpnessValue;
+    }
 }
