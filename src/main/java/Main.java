@@ -1,11 +1,23 @@
 import org.joda.time.DateTime;
 
 import javax.swing.*;
-//uruchomcie sobie i zobaczcie co się dzieje powinno najpierw długo budowac a za drugim razem szybciej
+//uruchomcie sobie zobaczcie co robi 
 public class Main {
     public static void main(String[] args){
         DateTime time=new DateTime();
         System.out.println("Focus Stacking Java Program");
+        //miejsce na pobranie danych o pliku do odczytu
+
+
+        //użycie funkcji wczytaj z klasy FotoJPG w pętli
+
+
         JOptionPane.showMessageDialog(null,"Focus Stacking Java Program");
+
+
+        //zapis do pliku jako Focus_Stacking_"nazwa_pliku".jpg
+
+
+        //JOptionPane.showMessageDialog(null,"zapisano wynki działania progrzmu do pliku");
     }
 }
