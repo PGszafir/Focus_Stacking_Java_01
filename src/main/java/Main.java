@@ -65,6 +65,9 @@ public class Main {
         }
 
         //Focus Stacking
-        new FocusStacking(focusMap, blurredPixels);
+        FocusStacking focusStacking = new FocusStacking(focusMap, blurredPixels);
+
+        //FotoRecomposition
+        new FotoRecomposition(focusStacking.getImage());
     }
 }
