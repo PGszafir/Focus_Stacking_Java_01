@@ -32,7 +32,7 @@ public class FotoRecomposition {
         }
 
         int[] finalArray = new int[height * width];
-        for(int i = 0; i < 100 ; i++) {
+        for(int i = 0; i < height * width; i++) {
             finalArray[i] = (oneDimensionalArray[i][0] << 24) + (oneDimensionalArray[i][1] << 16) +
                     (oneDimensionalArray[i][2] << 8) + oneDimensionalArray[i][3];
         }
