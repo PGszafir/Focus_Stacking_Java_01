@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
 class GaussianBlur {
     private int[][] image;
     private static int[][] weight_matrix = {{1,2,1},{2,4,2},{1,2,1}};
@@ -15,8 +19,12 @@ class GaussianBlur {
                     int green;
                     for(int k=0; k<3; k++){
                         for(int l=0; l<3; l++){
+<<<<<<< HEAD
                             //oblicz średnią ważoną pixel.green
                             green = blur_matrix[k][l] >> 8 & 0xFF;
+=======
+                            green = (blur_matrix[k][l] >> 8) & 0xFF;
+>>>>>>> master
                             blurred_pixel += green * weight_matrix[k][l];
                         }
                     }
@@ -29,10 +37,18 @@ class GaussianBlur {
             }
         }
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
     public int getPixel(int x, int y){
         return this.image[x][y];
     }
     public int[][] getImage(){
         return this.image;
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> master

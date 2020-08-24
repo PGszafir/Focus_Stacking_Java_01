@@ -1,24 +1,11 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by Fernflower decompiler)
-//
+import org.joda.time.DateTime;
 
-import java.awt.Component;
-import javax.swing.JOptionPane;
-//import org.joda.time.DateTime;
-
-//<<<<<<< Updated upstream
 import javax.swing.*;
-
-//=======
-//>>>>>>> Stashed changes
+//uruchomcie sobie i zobaczcie co się dzieje powinno najpierw długo budowac a za drugim razem szybciej
 public class Main {
-    public Main() {
-    }
-
-    public static void main(String[] args) {
-        //new DateTime();
+    public static void main(String[] args){
+        DateTime time=new DateTime();
         System.out.println("Focus Stacking Java Program");
-        JOptionPane.showMessageDialog((Component)null, "Focus Stacking Java Program");
+        JOptionPane.showMessageDialog(null,"Focus Stacking Java Program");
     }
 }
