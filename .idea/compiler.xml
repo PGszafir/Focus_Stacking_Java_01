@@ -9,5 +9,6 @@
         <module name="Focus_Stacking_Java_01" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel target="11" />
   </component>
 </project>
