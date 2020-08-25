@@ -30,7 +30,7 @@ public class Main {
         //GaussianBlur
         System.out.println("----------------------------------------------------");
         GaussianBlur[] allFotoBlurred = new GaussianBlur[NUMBER_OF_PHOTOS];
-        int[][][][] blurredPixels = new int[NUMBER_OF_PHOTOS][][][];
+        short [][][][] blurredPixels = new short[NUMBER_OF_PHOTOS][][][];
         for(int i = 0; i < NUMBER_OF_PHOTOS; i++) {
             allFotoBlurred[i] = new GaussianBlur(allFotoPixels[i].pixelArrayARGB);
             for (int j = 0; j < 5; j++) {
@@ -51,7 +51,7 @@ public class Main {
 
         //EdgeDetection
         EdgeDetection[] allFotoSharpness = new EdgeDetection[NUMBER_OF_PHOTOS];
-        int[][][] focusMap = new int[NUMBER_OF_PHOTOS][][];
+        short[][][] focusMap = new short[NUMBER_OF_PHOTOS][][];
         for(int i = 0; i < NUMBER_OF_PHOTOS; i++) {
             allFotoSharpness[i] = new EdgeDetection(allFotoBlurred[i].getImage());
             for (int j = 0; j < 5; j++) {

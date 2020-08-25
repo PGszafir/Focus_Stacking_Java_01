@@ -7,7 +7,7 @@ import java.io.IOException;
 public class FotoRecomposition {
     private BufferedImage image;
 
-    public FotoRecomposition(int[][][] inputImage) {
+    public FotoRecomposition(short[][][] inputImage) {
         int height = inputImage.length;
         int width = inputImage[0].length;
         //Szablon na którym zmieniamy piksele
@@ -21,7 +21,7 @@ public class FotoRecomposition {
         }
 
         //image = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB); TO NIE DZIAŁA TAK JAK POWINNO
-        int[][] oneDimensionalArray = new int[height*width][4];
+        short[][] oneDimensionalArray = new short[height*width][4];
         for(int i = 0; i < height; i++){
             for(int j = 0; j < width; j++) {
                 oneDimensionalArray[width*i + j][0] = inputImage[i][j][0];
