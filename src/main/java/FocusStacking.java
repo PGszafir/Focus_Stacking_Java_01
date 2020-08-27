@@ -1,12 +1,12 @@
 public class FocusStacking {
-    private short [][][] image;
-    public FocusStacking(short[][][] focus, short[][][][] input_images){ //to się później zmieni na chara podczas optymalizacji, ale na razie chcę to ze sobą połączyć i int mi jest potrzebny
+    private int [][] image;
+    public FocusStacking(short[][][] focus, int[][][] input_images){
         int numberOfPhotos, height, width;
         numberOfPhotos = input_images.length;
         height = input_images[0].length;
         width = input_images[0][0].length;
-        this.image = new short[height][width][4];
-        short [] pixel;
+        this.image = new int[height][width];
+        int pixel;
         short max_focus_value;
 
         for(int i=0; i<height; i++){
@@ -23,10 +23,10 @@ public class FocusStacking {
             }
         }
     }
-    public short[] getPixel(int x, int y){
+    public int getPixel(int x, int y){
         return this.image[x][y];
     }
-    public short[][][] getImage(){
+    public int[][] getImage(){
         return this.image;
     }
 }
