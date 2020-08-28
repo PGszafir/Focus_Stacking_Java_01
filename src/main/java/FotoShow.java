@@ -14,7 +14,7 @@ public class FotoShow extends JPanel {
     public FotoShow() {
         super();
         //wczytaj z pliku
-        File imageFile = new File("psiaki.jpg");
+        File imageFile = new File("C:/Users/Łukasz/Desktop/Java_Obrazy/tulipan/DSC06567.JPG");
         try {
             //utwórz obiekt z wczytanego zdjęcia
             image = ImageIO.read(imageFile);

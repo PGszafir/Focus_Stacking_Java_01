@@ -8,13 +8,14 @@ import javax.imageio.ImageIO;
 
 /** import i rozkład zdjęc JPG do postaci ARGB **/
 public class FotoDecomposition {
-    public short[][][] pixelArrayARGB;
+    private int[][] pixelArrayTwoDim;
     //obraz w formie tablicy atrybutów, które odpowiadają poszczególnym pikselom obrazka
     private BufferedImage image;
 
     public FotoDecomposition(String nazwaObrazu) {
         //wczytaj z pliku
-        File imageFile = new File("resources/"+nazwaObrazu);
+        File imageFile = new File("C:/Users/Łukasz/Desktop/Java_Obrazy/tulipan/" + nazwaObrazu);
+        //System.out.println(imageFile.getAbsolutePath());
         try {
             //utwórz obiekt z wczytanego zdjęcia
             image = ImageIO.read(imageFile);
@@ -22,21 +23,34 @@ public class FotoDecomposition {
             System.err.println("Blad odczytu obrazka");
             e.printStackTrace();
         }
-        int[] pixelArray = new int[image.getWidth() * image.getHeight()];
+        int width = image.getWidth();
+        int height = image.getHeight();
+        int[] pixelArrayOneDim; //= new int[image.getWidth() * image.getHeight()];
         //próba uzyskania tablicy pikseli
-        image.getRGB(0, 0, image.getWidth(), image.getHeight(), pixelArray, 0, image.getWidth());
+        pixelArrayOneDim = image.getRGB(0, 0, width, height, null, 0, width);
         //uzyskana tablica to tablica pikseli w postaci unsigned integer formy 0xAARRGGBB
         //System.out.println(Arrays.toString(pixelArray));
 
         //tablica pikseli reprezentowanych przez tablicę 4 wartości kolorów składowych
-        pixelArrayARGB = new short[image.getHeight()][image.getWidth()][4];
-        for (int i = 0; i < image.getWidth() * image.getHeight(); i++) {
-            int x = i / image.getWidth(); //pozycja na osi poziomej
-            int y = i % image.getWidth(); //pozycja na osi pionowej
-            pixelArrayARGB[x][y][0] = (short)((pixelArray[i] >> 24) & 0xFF); //a, alfa
+        pixelArrayTwoDim = new int[height][width];
+        int x, y;
+        for (int i = 0; i < width*height ; i++) {
+            x = height - (i / width) - 1; //pozycja na osi poziomej
+            y = width - (i % width) - 1; //pozycja na osi pionowej
+            pixelArrayTwoDim[x][y] = pixelArrayOneDim[i];
+            /*pixelArrayARGB[x][y][0] = (short)((pixelArray[i] >> 24) & 0xFF); //a, alfa
             pixelArrayARGB[x][y][1] = (short)((pixelArray[i] >> 16) & 0xFF); //r, czerwony
             pixelArrayARGB[x][y][2] = (short)((pixelArray[i] >> 8) & 0xFF); //g, zielony
-            pixelArrayARGB[x][y][3] = (short)((pixelArray[i]) & 0xFF); //b, niebieski
+            pixelArrayARGB[x][y][3] = (short)((pixelArray[i]) & 0xFF); //b, niebieski*/
         }
+        //pixelArray = null; //CZYSZCZENIE PAMIĘCI, NADGORLIWE, ALE MOŻE ZMNIEJSZY STOS
+    }
+
+    public int[][] getImage(){
+        return pixelArrayTwoDim;
+    }
+
+    public int getPixel(int x, int y){
+        return pixelArrayTwoDim[x][y];
     }
 }
