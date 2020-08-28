@@ -10,45 +10,47 @@ public class Main {
         //JOptionPane.showMessageDialog(null,"Focus Stacking Java Program");
 
         //FotoDecomposition
-        final int NUMBER_OF_PHOTOS = 2;
-        FotoDecomposition[] allFotoPixels = new FotoDecomposition[NUMBER_OF_PHOTOS]; //MOŻE BEZ SENSU TAK TWORZYĆ TABLICĘ KLAS
-
+        final int NUMBER_OF_PHOTOS = 7;
+        int[][] OriginalPixelMap;
+        int[][][] allBlurredPixelMaps = new int[NUMBER_OF_PHOTOS][][];
+        short[][][] allFocusMaps = new short[NUMBER_OF_PHOTOS][][];
         for(int i = 0; i < NUMBER_OF_PHOTOS; i++) {
-            allFotoPixels[i] = new FotoDecomposition("DSC065"+(i+46)+".JPG");
-            for (int j = 0; j < 5; j++) {
+            OriginalPixelMap = new FotoDecomposition("DSC065"+(i+46)+".JPG").getImage();
+            allBlurredPixelMaps[i] = new GaussianBlur(OriginalPixelMap).getImage();
+            allFocusMaps[i] = new EdgeDetection(allBlurredPixelMaps[i]).getFocusMap();
+            System.out.println("Przetworzone zdjęcie:"+(i+1));
+            /*for (int j = 0; j < 5; j++) {
                 for (int k = 0; k < 5; k++) {
                     System.out.print("[");
-                    System.out.print(" " + allFotoPixels[i].getPixel(j, k));
+                    System.out.print(" " + allOriginalPixelMaps[i][j][k]);
                     System.out.print("], ");
                 }
                 System.out.println();
             }
-            System.out.println("\n\n");
+            System.out.println("\n\n");*/
         }
-
+        FocusStacking focusStacking = new FocusStacking(allFocusMaps, allBlurredPixelMaps);
+        new FotoRecomposition(focusStacking.getImage());
         //GaussianBlur
-        System.out.println("----------------------------------------------------");
-        GaussianBlur[] allFotoBlurred = new GaussianBlur[NUMBER_OF_PHOTOS];
-        int [][][] blurredPixels = new int[NUMBER_OF_PHOTOS][][];
-        for(int i = 0; i < NUMBER_OF_PHOTOS; i++) {
-            allFotoBlurred[i] = new GaussianBlur(allFotoPixels[i].getImage());
-            for (int j = 0; j < 5; j++) {
+        //System.out.println("----------------------------------------------------");
+        //int [][][] allBlurredPixelMaps = new int[NUMBER_OF_PHOTOS][][];
+        //for(int i = 0; i < NUMBER_OF_PHOTOS; i++) {
+            //allBlurredPixelMaps[i] = new GaussianBlur(allOriginalPixelMaps[i]).getImage();
+            /*for (int j = 0; j < 5; j++) {
                 for (int k = 0; k < 5; k++) {
                     System.out.print("[");
-                    System.out.print(" " + allFotoBlurred[i].getPixel(j,k));
+                    System.out.print(" " + allBlurredPixelMaps[i][j][k]);
                     System.out.print("], ");
                 }
                 System.out.println();
             }
-            System.out.println("\n\n");
-            blurredPixels[i] = allFotoBlurred[i].getImage();
-        }
+            System.out.println("\n\n");*/
+        //}
 
         //EdgeDetection
-        EdgeDetection[] allFotoSharpness = new EdgeDetection[NUMBER_OF_PHOTOS];
-        short[][][] focusMap = new short[NUMBER_OF_PHOTOS][][];
-        for(int i = 0; i < NUMBER_OF_PHOTOS; i++) {
-            allFotoSharpness[i] = new EdgeDetection(allFotoBlurred[i].getImage());
+        //short[][][] allFocusMaps = new short[NUMBER_OF_PHOTOS][][];
+        //for(int i = 0; i < NUMBER_OF_PHOTOS; i++) {
+            //allFocusMaps[i] = new EdgeDetection(allBlurredPixelMaps[i]).getFocusMap();
             /*for (int j = 0; j < 5; j++) {
                 for (int k = 0; k < 5; k++) {
                         System.out.print(" " + allFotoSharpness[i].sharpnessValue[j][k]);
@@ -56,12 +58,11 @@ public class Main {
                 System.out.println();
             }
             System.out.println("\n\n");*/
-            focusMap[i] = allFotoSharpness[i].getFocusMap();
-        }
+       // }
 
         //Focus Stacking
-        FocusStacking focusStacking = new FocusStacking(focusMap, blurredPixels);
-        for (int j = 0; j < 5; j++) {
+        //FocusStacking focusStacking = new FocusStacking(allFocusMaps, allBlurredPixelMaps);
+        /*for (int j = 0; j < 5; j++) {
             for (int k = 0; k < 5; k++) {
                 System.out.print("[");
                 System.out.print(" " + focusStacking.getPixel(j, k));
@@ -69,10 +70,10 @@ public class Main {
             }
             System.out.println();
         }
-        System.out.println("\n\n");
+        System.out.println("\n\n");*/
 
 
         //FotoRecomposition
-        new FotoRecomposition(focusStacking.getImage());
+        //new FotoRecomposition(focusStacking.getImage());
     }
 }
