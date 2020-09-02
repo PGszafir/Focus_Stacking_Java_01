@@ -7,11 +7,11 @@ import java.io.IOException;
 public class FotoRecomposition {
     private BufferedImage image;
 
-    public FotoRecomposition(int[][] inputImage) {
+    public FotoRecomposition(int[][] inputImage, String photoPath) {
         int height = inputImage.length;
         int width = inputImage[0].length;
         //Szablon na którym zmieniamy piksele
-        File initialImage = new File("C:/Users/Łukasz/Desktop/Java_Obrazy/tulipan/DSC06567.JPG");
+        File initialImage = new File(photoPath);
         try {
             //utwórz obiekt z wczytanego zdjęcia
             image = ImageIO.read(initialImage);
