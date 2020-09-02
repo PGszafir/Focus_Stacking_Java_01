@@ -16,16 +16,22 @@ public class EdgeDetection { // extends PixelMap {
                     int[][] laplacian_matrix = {{input_image[i-1][j-1],input_image[i-1][j],input_image[i-1][j+1]},
                             {input_image[i][j-1],input_image[i][j],input_image[i][j+1]},
                             {input_image[i+1][j-1],input_image[i+1][j],input_image[i+1][j+1]}};
-
+                    //short redValue = 0;
+                    //short blueValue = 0;
+                    //short greenValue = 0;
                     for(int k=0; k<3; k++){
                         for(int l=0; l<3; l++){
                             red = getRed(laplacian_matrix[k][l]);
                             green = getGreen(laplacian_matrix[k][l]);
                             blue = getBlue(laplacian_matrix[k][l]);
+                            //redValue += red * laplacian_operator[k][l];
+                            //blueValue += blue * laplacian_operator[k][l];
+                            //greenValue += green * laplacian_operator[k][l];
                             sharpnessValue[i][j] += (red + green + blue) * laplacian_operator[k][l];
                         }
                     }
-                    sharpnessValue[i][j] = (short) abs(sharpnessValue[i][j]);
+                    sharpnessValue[i][j] = (short) (abs(sharpnessValue[i][j]));
+                    //sharpnessValue[i][j] = (short) (abs(redValue) + abs(blueValue) + abs(greenValue));
                 }
                 else{
                     red = getRed(input_image[i][j]);

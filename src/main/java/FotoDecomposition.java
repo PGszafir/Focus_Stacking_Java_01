@@ -12,9 +12,9 @@ public class FotoDecomposition {
     //obraz w formie tablicy atrybutów, które odpowiadają poszczególnym pikselom obrazka
     private BufferedImage image;
 
-    public FotoDecomposition(String nazwaObrazu) {
+    public FotoDecomposition(String photoPath) {
         //wczytaj z pliku
-        File imageFile = new File("C:/Users/Łukasz/Desktop/Java_Obrazy/tulipan/" + nazwaObrazu);
+        File imageFile = new File(photoPath);
         //System.out.println(imageFile.getAbsolutePath());
         try {
             //utwórz obiekt z wczytanego zdjęcia
