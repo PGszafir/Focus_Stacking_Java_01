@@ -7,7 +7,7 @@ import java.io.IOException;
 public class FotoRecomposition {
     private BufferedImage image;
 
-    public FotoRecomposition(int[][] inputImage, String photoPath) {
+    public FotoRecomposition(int[][] inputImage, String photoPath, String photoName) {
         int height = inputImage.length;
         int width = inputImage[0].length;
         //Szablon na którym zmieniamy piksele
@@ -31,7 +31,7 @@ public class FotoRecomposition {
 
         image.setRGB(0,0, width, height, finalArray, 0, width);
 
-        File outputFile = new File("resources/stacked_foto.jpg");
+        File outputFile = new File("resources/stacked_foto_"+photoName+".jpg");
 
         try {
             ImageIO.write(image, "jpg", outputFile);
