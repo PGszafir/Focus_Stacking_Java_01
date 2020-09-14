@@ -1,11 +1,11 @@
 import java.awt.EventQueue;
 
 public class TestFotoShow {
-    public static void main(String[] args) {
+    public TestFotoShow(String photoPath) {
         EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new ObrazFrame();
+                new ObrazFrame(photoPath);
             }
         });
     }

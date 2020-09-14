@@ -11,10 +11,10 @@ public class FotoShow extends JPanel {
     //obraz w formie tablicy atrybutów, które odpowiadają poszczególnym pikselom obrazka
     private BufferedImage image;
 
-    public FotoShow() {
+    public FotoShow(String photoPath) {
         super();
         //wczytaj z pliku
-        File imageFile = new File("C:/Users/Łukasz/Desktop/Java_Obrazy/tulipan/DSC06567.JPG");
+        File imageFile = new File(photoPath);
         try {
             //utwórz obiekt z wczytanego zdjęcia
             image = ImageIO.read(imageFile);

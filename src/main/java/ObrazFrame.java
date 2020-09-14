@@ -3,14 +3,14 @@ import javax.swing.JFrame;
 
 public class ObrazFrame extends JFrame {
 
-    public ObrazFrame() {
-        super("Program obrazkowy");
+    public ObrazFrame(String photoPath) {
+        super(photoPath);
 
-        JPanel obrazPanel = new FotoShow();
+        JPanel obrazPanel = new FotoShow(photoPath);
         add(obrazPanel);
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        pack(); //rozmiar ramki dopasuje się automatycznie
+        pack();
         setVisible(true);
     }
 }

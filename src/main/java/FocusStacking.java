@@ -3,9 +3,8 @@ import static java.lang.Math.*;
 public class FocusStacking {
     private int [][] image;
     private short [][] focus;
-    public FocusStacking(short[][] currentFocus, short[][] newFocus, int[][] currentImage, int[][] newImage){
+    public FocusStacking(short[][] currentFocus, short[][] newFocus, int[][] currentImage, int[][] newImage, int colorTreshold){
         int height, width;
-        int COLOR_TRESHOLD = 100;
         height = currentImage.length;
         width = currentImage[0].length;
         this.image = new int[height][width];
@@ -17,7 +16,7 @@ public class FocusStacking {
                     colorDifference = abs(getRed(currentImage[i][j]) - getRed(newImage[i][j])) +
                             abs(getGreen(currentImage[i][j]) - getGreen(newImage[i][j])) +
                             abs(getBlue(currentImage[i][j]) - getBlue(newImage[i][j]));
-                    if(colorDifference < COLOR_TRESHOLD){
+                    if(colorDifference <= colorTreshold){
                         this.image[i][j] = newImage[i][j];
                         this.focus[i][j] = newFocus[i][j];
                     }

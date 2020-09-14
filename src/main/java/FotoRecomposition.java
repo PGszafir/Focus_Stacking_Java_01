@@ -1,4 +1,5 @@
 import javax.imageio.ImageIO;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -7,7 +8,7 @@ import java.io.IOException;
 public class FotoRecomposition {
     private BufferedImage image;
 
-    public FotoRecomposition(int[][] inputImage, String photoPath, String photoName) {
+    public FotoRecomposition(int[][] inputImage, String photoPath, String photoName, int treshold) {
         int height = inputImage.length;
         int width = inputImage[0].length;
         //Szablon na którym zmieniamy piksele
@@ -31,13 +32,24 @@ public class FotoRecomposition {
 
         image.setRGB(0,0, width, height, finalArray, 0, width);
 
-        File outputFile = new File("resources/stacked_foto_"+photoName+".jpg");
+        String desktopPath = System.getProperty("user.home") + "\\Desktop";
+        String newFilePath = desktopPath+"\\Java_Obrazy\\output\\stacked_foto_"+photoName+"_TRESHOLD_"+treshold+".jpg";
+        File outputFile = new File(newFilePath);
 
         try {
             ImageIO.write(image, "jpg", outputFile);
+            Desktop desktop = Desktop.getDesktop();
+            if(Desktop.isDesktopSupported()) {
+                if (outputFile.exists()) {
+                    desktop.open(outputFile);
+                }
+            }
         } catch (IOException e) {
             System.err.println("Blad zapisu obrazka");
             e.printStackTrace();
         }
+
+
     }
 }
+
